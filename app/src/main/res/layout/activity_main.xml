@@ -10,15 +10,15 @@
 
 
     <ImageButton
-        android:id="@+id/btnf"
+        android:id="@+id/btnd"
         style="@style/letterButtonSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
-        app:srcCompat="@drawable/f" />
+        app:layout_constraintVertical_bias="0.682"
+        app:srcCompat="@drawable/d" />
 
     <ImageButton
         android:id="@+id/btnp"
@@ -28,19 +28,19 @@
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/p" />
 
     <ImageButton
-        android:id="@+id/btny"
+        android:id="@+id/btnf"
         style="@style/letterButtonSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
-        app:srcCompat="@drawable/y" />
+        app:layout_constraintVertical_bias="0.682"
+        app:srcCompat="@drawable/f" />
 
     <ImageButton
         android:id="@+id/btne"
@@ -50,19 +50,19 @@
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
+        app:layout_constraintVertical_bias="0.682"
         app:srcCompat="@drawable/e" />
 
     <ImageButton
-        android:id="@+id/btnx"
+        android:id="@+id/btny"
         style="@style/letterButtonSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
-        app:srcCompat="@drawable/x" />
+        app:layout_constraintVertical_bias="0.958"
+        app:srcCompat="@drawable/y" />
 
     <ImageButton
         android:id="@+id/btna"
@@ -72,8 +72,19 @@
         app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
+        app:layout_constraintVertical_bias="0.682"
         app:srcCompat="@drawable/a" />
+
+    <ImageButton
+        android:id="@+id/btnx"
+        style="@style/letterButtonSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958"
+        app:srcCompat="@drawable/x" />
 
     <ImageButton
         android:id="@+id/btnb"
@@ -83,7 +94,7 @@
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
+        app:layout_constraintVertical_bias="0.682"
         app:srcCompat="@drawable/b" />
 
     <ImageButton
@@ -94,7 +105,7 @@
         app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
+        app:layout_constraintVertical_bias="0.958"
         app:srcCompat="@drawable/w" />
 
     <ImageButton
@@ -105,30 +116,19 @@
         app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
+        app:layout_constraintVertical_bias="0.682"
         app:srcCompat="@drawable/c" />
 
     <ImageButton
-        android:id="@+id/btnd"
+        android:id="@+id/btnk"
         style="@style/letterButtonSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
-        app:srcCompat="@drawable/d" />
-
-    <ImageButton
-        android:id="@+id/btnq"
-        style="@style/letterButtonSize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
-        app:srcCompat="@drawable/q" />
+        app:layout_constraintVertical_bias="0.769"
+        app:srcCompat="@drawable/k" />
 
     <ImageButton
         android:id="@+id/btni"
@@ -138,7 +138,7 @@
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/i" />
 
     <ImageButton
@@ -149,7 +149,7 @@
         app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/j" />
 
     <ImageButton
@@ -160,7 +160,7 @@
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/r" />
 
     <ImageButton
@@ -171,7 +171,7 @@
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/s" />
 
     <ImageButton
@@ -182,7 +182,7 @@
         app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
+        app:layout_constraintVertical_bias="0.958"
         app:srcCompat="@drawable/z" />
 
     <ImageButton
@@ -193,7 +193,7 @@
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
+        app:layout_constraintVertical_bias="0.958"
         app:srcCompat="@drawable/v" />
 
     <ImageButton
@@ -204,7 +204,7 @@
         app:layout_constraintHorizontal_bias="0.653"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/l" />
 
     <ImageButton
@@ -215,7 +215,7 @@
         app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/m" />
 
     <ImageButton
@@ -226,7 +226,7 @@
         app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/u" />
 
     <ImageButton
@@ -237,7 +237,7 @@
         app:layout_constraintHorizontal_bias="0.792"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/n" />
 
     <ImageButton
@@ -248,7 +248,7 @@
         app:layout_constraintHorizontal_bias="0.792"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/t" />
 
     <ImageButton
@@ -259,7 +259,7 @@
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/h" />
 
     <ImageButton
@@ -270,35 +270,8 @@
         app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669"
+        app:layout_constraintVertical_bias="0.682"
         app:srcCompat="@drawable/g" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="255dp"
-        android:layout_height="326dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/stand" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageButton
-        android:id="@+id/btnk"
-        style="@style/letterButtonSize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756"
-        app:srcCompat="@drawable/k" />
 
     <ImageButton
         android:id="@+id/btno"
@@ -308,18 +281,47 @@
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/o" />
 
-    <LinearLayout
-        android:id="@+id/inputBox"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="256dp"
-        android:orientation="vertical"
+    <ImageButton
+        android:id="@+id/btnq"
+        style="@style/letterButtonSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/q" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="255dp"
+        android:layout_height="326dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/stand" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!--    <TableRow-->
+<!--        android:id="@+id/inputBox"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginBottom="256dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="right"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"></TableRow>-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

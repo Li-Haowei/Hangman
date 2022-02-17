@@ -2,12 +2,16 @@ package com.example.hangman;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnx;
     private ImageButton btny;
     private ImageButton btnz;
-    private LinearLayout inputBox;
+    //private TableRow inputBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,11 +84,13 @@ public class MainActivity extends AppCompatActivity {
         btnx = (ImageButton) findViewById(R.id.btnx);
         btny = (ImageButton) findViewById(R.id.btny);
         btnz = (ImageButton) findViewById(R.id.btnz);
-        inputBox = (LinearLayout) findViewById(R.id.inputBox);
+        //inputBox = (TableRow) findViewById(R.id.inputBox);
         btna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //ImageView ii = new ImageView(view.getContext());
+                //ii.setBackgroundResource(R.drawable.a);
+                //inputBox.addView(ii);
             }
         });
         btnb.setOnClickListener(new View.OnClickListener() {
