@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private String[][] GRE = new String[676][];
     private String currentWord;
     private String hint;
-    private char[] chars;
     private ImageButton btna;
     private ImageButton btnb;
     private ImageButton btnc;
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnx;
     private ImageButton btny;
     private ImageButton btnz;
+    private LinearLayout inputBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        chars = new char[currentWord.length()];
-
         btna = (ImageButton) findViewById(R.id.btna);
         btnb = (ImageButton) findViewById(R.id.btnb);
         btnc = (ImageButton) findViewById(R.id.btnc);
@@ -82,9 +80,11 @@ public class MainActivity extends AppCompatActivity {
         btnx = (ImageButton) findViewById(R.id.btnx);
         btny = (ImageButton) findViewById(R.id.btny);
         btnz = (ImageButton) findViewById(R.id.btnz);
+        inputBox = (LinearLayout) findViewById(R.id.inputBox);
         btna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             }
         });
         btnb.setOnClickListener(new View.OnClickListener() {
@@ -249,22 +249,9 @@ public class MainActivity extends AppCompatActivity {
             i++;
         }
     }
-    private void updateView(){
-
-    }
-    private boolean checkIfFinished(char[] list){
-        for (int i = 0; i < list.length; i++) {
-            if (list[i]==(char)0){
-                return false;
-            }
-        }
-        return true;
-    }
     private String[] extractWord(String line){
         String[] wordAndHint = line.split(" - ",2);
         return wordAndHint;
     }
-    public int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
+
 }
