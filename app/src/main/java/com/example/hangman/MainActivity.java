@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnx;
     private ImageButton btny;
     private ImageButton btnz;
+    private GridView gv;
     //private TableRow inputBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         btny = (ImageButton) findViewById(R.id.btny);
         btnz = (ImageButton) findViewById(R.id.btnz);
         //inputBox = (TableRow) findViewById(R.id.inputBox);
+        gv = new GridView(MainActivity.this);
         btna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
