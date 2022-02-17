@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private String[][] GRE = new String[676][];
     private String currentWord;
     private String hint;
+    private String[] chars;
     private ImageButton btna;
     private ImageButton btnb;
     private ImageButton btnc;
@@ -44,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnx;
     private ImageButton btny;
     private ImageButton btnz;
-    private LinearLayout inputBox;
+    private TextView tv;
+    private String display;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        currentWord = GRE[getRandomNumber(0,676)][0];
+        hint = GRE[getRandomNumber(0,676)][1];
+        chars = new String[currentWord.length()];
+        display = new String(new char[currentWord.length()]).replace('\0','_');
+
+        int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
+        int letterHint2 = getRandomNumber(0,currentWord.length()/2);
+        char hint1 = currentWord.charAt(letterHint1);
+        char hint2 = currentWord.charAt(letterHint2);
+
+
         btna = (ImageButton) findViewById(R.id.btna);
         btnb = (ImageButton) findViewById(R.id.btnb);
         btnc = (ImageButton) findViewById(R.id.btnc);
@@ -80,7 +96,10 @@ public class MainActivity extends AppCompatActivity {
         btnx = (ImageButton) findViewById(R.id.btnx);
         btny = (ImageButton) findViewById(R.id.btny);
         btnz = (ImageButton) findViewById(R.id.btnz);
-        inputBox = (LinearLayout) findViewById(R.id.inputBox);
+        tv = (TextView) findViewById(R.id.textView);
+
+
+
         btna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -249,9 +268,27 @@ public class MainActivity extends AppCompatActivity {
             i++;
         }
     }
+    private boolean checkIfEnd(String[] chars){
+        for (int i = 0; i < chars.length; i++) {
+            if(chars[i]==null){
+                return false;
+            }
+        }
+        return true;
+    }
+    private void update(String[] chars){
+        StringBuilder builder = new StringBuilder();
+        for(String s : chars) {
+            builder.append(s);
+        }
+        String str = builder.toString();
+
+    }
     private String[] extractWord(String line){
         String[] wordAndHint = line.split(" - ",2);
         return wordAndHint;
     }
-
+    private int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
 }
