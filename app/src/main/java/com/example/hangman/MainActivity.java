@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void readFile() throws IOException {
-        File file = new File("\\value\\words.txt");
+        File file = new File("\\words.txt");
         String st;
         int i = 0;
         BufferedReader br = new BufferedReader(new FileReader(file));
