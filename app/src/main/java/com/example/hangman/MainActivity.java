@@ -44,7 +44,8 @@ import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
-    private String[][] GRE = new String[676][2];
+    private String[][] dic = new String[676][2];
+    private String library = "words.txt";
     private int stage;
     private String currentWord;
     private String hint;
@@ -93,12 +94,18 @@ public class MainActivity extends AppCompatActivity {
                 for (int i=0; i < 3; i++)
                 {Toast.makeText(this,this.hint,Toast.LENGTH_SHORT).show();}
                 return true;
+            case R.id.newword:
+                this.newWord();
+                return true;
             case R.id.restart:
                 recreate();
                 return true;
-            case R.id.subitem1:
-            case R.id.subitem2:
-                Toast.makeText(this,"Will be developed in the future",Toast.LENGTH_SHORT).show();
+            case R.id.gre:
+                library = "words.txt";
+                Toast.makeText(this,"Vocabulary changed to GRE",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.math:
+                Toast.makeText(this,"Vocabulary changed to Math",Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -114,9 +121,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        currentWord = GRE[getRandomNumber(0,676)][0];
-        hint = GRE[getRandomNumber(0,676)][1];
+        currentWord = dic[getRandomNumber(0,676)][0];
+        hint = dic[getRandomNumber(0,676)][1];
         display = new String(new char[currentWord.length()]).replace('\0','_');
+        //Log messages for internal debugs
         Log.d("Creation",currentWord);
         Log.d("Creation",display);
         Log.d("Creation",hint);
@@ -323,7 +331,7 @@ public class MainActivity extends AppCompatActivity {
     private void readFile() throws IOException {
         String st;
         try {
-            InputStream is = getAssets().open("words.txt");
+            InputStream is = getAssets().open(library);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -332,7 +340,7 @@ public class MainActivity extends AppCompatActivity {
             String[] arr = st.split("\n");
             for (int i = 0; i <arr.length-1; i++) {
                 String[] wordAndHint = extractWord(arr[i]);
-                GRE[i] = wordAndHint;
+                dic[i] = wordAndHint;
             }
         }
         catch (IOException e) {
@@ -408,6 +416,27 @@ public class MainActivity extends AppCompatActivity {
         return (int) ((Math.random() * (max - min)) + min);
     }
 
-
+    private void newWord(){
+        try {
+            readFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        currentWord = dic[getRandomNumber(0,676)][0];
+        hint = dic[getRandomNumber(0,676)][1];
+        display = new String(new char[currentWord.length()]).replace('\0','_');
+        int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
+        int letterHint2 = getRandomNumber(0,currentWord.length()/2);
+        char hint1 = currentWord.charAt(letterHint1);
+        char hint2 = currentWord.charAt(letterHint2);
+        currentIndex = 0;
+        stage=0;
+        String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
+        display = ns;
+        ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
+        display = ns;
+        tv.setText(display);
+        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
+    }
 
 }
