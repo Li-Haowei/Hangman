@@ -90,19 +90,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.hint:
-                Toast.makeText(this,this.hint,Toast.LENGTH_SHORT);
+                for (int i=0; i < 3; i++)
+                {Toast.makeText(this,this.hint,Toast.LENGTH_SHORT).show();}
                 return true;
             case R.id.restart:
                 recreate();
                 return true;
             case R.id.subitem1:
             case R.id.subitem2:
-                Toast.makeText(this,"Will be developed in the future",Toast.LENGTH_SHORT);
+                Toast.makeText(this,"Will be developed in the future",Toast.LENGTH_SHORT).show();
                 return true;
             default:
-                break;
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -407,5 +407,7 @@ public class MainActivity extends AppCompatActivity {
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+
 
 }
