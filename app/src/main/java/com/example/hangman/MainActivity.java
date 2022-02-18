@@ -1,5 +1,6 @@
 package com.example.hangman;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -14,6 +15,9 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.LogPrinter;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -74,6 +78,33 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private String display;
     private ImageView img;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.hint:
+                Toast.makeText(this,this.hint,Toast.LENGTH_SHORT);
+                return true;
+            case R.id.restart:
+                recreate();
+                return true;
+            case R.id.subitem1:
+            case R.id.subitem2:
+                Toast.makeText(this,"Will be developed in the future",Toast.LENGTH_SHORT);
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
