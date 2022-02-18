@@ -4,25 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/skull"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="25dp">
 
-
     <ImageButton
         android:id="@+id/btnf"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.669"
+
         app:srcCompat="@drawable/f" />
 
     <ImageButton
         android:id="@+id/btnp"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
@@ -34,6 +37,7 @@
     <ImageButton
         android:id="@+id/btny"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.65"
@@ -45,6 +49,7 @@
     <ImageButton
         android:id="@+id/btne"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.65"
@@ -56,6 +61,7 @@
     <ImageButton
         android:id="@+id/btnx"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
@@ -66,6 +72,7 @@
 
     <ImageButton
         android:id="@+id/btna"
+        android:background="@android:color/transparent"
         style="@style/letterButtonSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +85,7 @@
     <ImageButton
         android:id="@+id/btnb"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.235"
@@ -89,6 +97,7 @@
     <ImageButton
         android:id="@+id/btnw"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.373"
@@ -100,6 +109,7 @@
     <ImageButton
         android:id="@+id/btnc"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.373"
@@ -111,6 +121,7 @@
     <ImageButton
         android:id="@+id/btnd"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
@@ -122,6 +133,7 @@
     <ImageButton
         android:id="@+id/btnq"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.376"
@@ -133,6 +145,7 @@
     <ImageButton
         android:id="@+id/btni"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
@@ -144,6 +157,7 @@
     <ImageButton
         android:id="@+id/btnj"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.376"
@@ -155,6 +169,7 @@
     <ImageButton
         android:id="@+id/btnr"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -166,6 +181,7 @@
     <ImageButton
         android:id="@+id/btns"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.65"
@@ -177,6 +193,7 @@
     <ImageButton
         android:id="@+id/btnz"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.789"
@@ -188,6 +205,7 @@
     <ImageButton
         android:id="@+id/btnv"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.235"
@@ -199,6 +217,7 @@
     <ImageButton
         android:id="@+id/btnl"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.653"
@@ -210,6 +229,7 @@
     <ImageButton
         android:id="@+id/btnm"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -221,6 +241,7 @@
     <ImageButton
         android:id="@+id/btnu"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -232,6 +253,7 @@
     <ImageButton
         android:id="@+id/btnn"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.792"
@@ -243,6 +265,7 @@
     <ImageButton
         android:id="@+id/btnt"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.792"
@@ -254,6 +277,7 @@
     <ImageButton
         android:id="@+id/btnh"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
@@ -265,6 +289,7 @@
     <ImageButton
         android:id="@+id/btng"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.925"
@@ -277,6 +302,7 @@
         android:id="@+id/imageView3"
         android:layout_width="231dp"
         android:layout_height="272dp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
@@ -292,6 +318,7 @@
     <ImageButton
         android:id="@+id/btnk"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -303,6 +330,7 @@
     <ImageButton
         android:id="@+id/btno"
         style="@style/letterButtonSize"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
@@ -316,7 +344,7 @@
         android:layout_width="268dp"
         android:layout_height="80dp"
         android:text=""
-        android:background="@color/black"
+
         android:textColor="@color/red"
         android:textStyle="italic"
         android:textSize="50dp"

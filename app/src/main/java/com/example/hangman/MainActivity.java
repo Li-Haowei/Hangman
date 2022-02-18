@@ -322,8 +322,8 @@ public class MainActivity extends AppCompatActivity {
             String ns = display.substring(0,currentIndex)+currentWord.charAt(currentIndex)+display.substring(currentIndex+1);
             display = ns;
             SpannableString spannableString = new SpannableString(display);
-            ForegroundColorSpan white = new ForegroundColorSpan(Color.WHITE);
-            spannableString.setSpan(white,
+            ForegroundColorSpan color = new ForegroundColorSpan(Color.BLACK);
+            spannableString.setSpan(color,
                     currentIndex, currentIndex+1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv.setText(spannableString);
             switch (stage){
