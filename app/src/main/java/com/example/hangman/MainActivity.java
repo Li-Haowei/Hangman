@@ -44,7 +44,8 @@ import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
-    private String[][] dic = new String[676][2];
+    private int libraryLen = 676;
+    private String[][] dic = new String[libraryLen][2];
     private String library = "words.txt";
     private int stage;
     private String currentWord;
@@ -121,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        currentWord = dic[getRandomNumber(0,676)][0];
-        hint = dic[getRandomNumber(0,676)][1];
+        currentWord = dic[getRandomNumber(0,libraryLen)][0];
+        hint = dic[getRandomNumber(0,libraryLen)][1];
         display = new String(new char[currentWord.length()]).replace('\0','_');
         //Log messages for internal debugs
         Log.d("Creation",currentWord);
@@ -422,8 +423,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        currentWord = dic[getRandomNumber(0,676)][0];
-        hint = dic[getRandomNumber(0,676)][1];
+        currentWord = dic[getRandomNumber(0,libraryLen)][0];
+        hint = dic[getRandomNumber(0,libraryLen)][1];
         display = new String(new char[currentWord.length()]).replace('\0','_');
         int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
         int letterHint2 = getRandomNumber(0,currentWord.length()/2);
