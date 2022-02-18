@@ -1,0 +1,66 @@
+plus - the arithmetic operation of summing
+quotient - the number obtained by division
+difference - the number that remains after subtraction
+combine - put or add together
+separate - force, take, or pull apart
+times - an arithmetic operation that is the inverse of division
+remaining - not used up
+increase - make greater in size
+decrease - make lesser in size
+total - the whole amount
+shared - have in common; held or experienced in common
+sum - a quantity obtained by the addition of a group of numbers
+leftover - not used up
+less - fewer
+fewer - quantifier meaning a smaller number of
+product - a quantity obtained by multiplication
+factor - any of numbers that form a product when multiplied together
+split - separate into parts or portions
+half - one of two equal parts of a divisible whole
+quarter - one of four equal parts
+cube - the product of three equal terms
+square - a polygon with four equal sides and four right angles
+more - greater in size or amount or extent or degree
+addend - a number that is combined with another number
+average - around the middle of a scale of evaluation
+coordinate - a number that identifies a position relative to an axis
+denominator - the divisor of a fraction
+numerator - the dividend of a fraction
+equation - a mathematical statement that two expressions are the same
+expression - a group of symbols that make a mathematical statement
+estimate - an approximate calculation of quantity or degree or worth
+fraction - the quotient of two rational numbers
+integer - any natural number or its negative, or zero
+mean - an average computed by adding some function of the numbers
+median - relating to the middle value of an ordered set of values
+mode - the most frequent value of a random variable
+prime - a number that has no factor but itself and 1
+probability - a measure of how likely it is that some event will occur
+acute - (of an angle) less than 90 degrees
+angle - the space between two lines or planes that intersect
+area - the extent of a two-dimensional surface within a boundary
+perimeter - a line enclosing a plane area
+circle - a plane curve with every point equidistant from the center
+circumference - the length of the closed curve of a circle
+congruent - corresponding in character or kind
+equilateral - having all sides of the same length
+hexagon - a six-sided polygon
+intersecting - crossed or intersected in the form of an X
+isosceles - (of a triangle) having two sides of equal length
+line - a length between two points
+segment - one of several parts that fit with others to make a whole
+obtuse - of an angle, between 90 and 180 degrees
+octagon - a shape with eight angles and eight sides
+parallel - being everywhere equidistant and not intersecting
+parallelogram - a quadrilateral whose opposite sides are parallel and equal
+pentagon - a shape with five angles and five sides
+perpendicular - intersecting at or forming right angles
+polygon - a closed plane figure bounded by straight sides
+quadrilateral - a four-sided polygon
+ray - (mathematics) a straight line extending from a point
+rhombus - a parallelogram with four equal sides
+right - having the axis perpendicular to the base
+scalene - having three sides of different lengths
+straight - free from curves or angles
+symmetry - exact reflection of form on opposite sides of a line
+volume - the amount of 3-dimensional space occupied by an object

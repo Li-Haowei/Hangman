@@ -103,9 +103,22 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.gre:
                 library = "words.txt";
+                libraryLen = 676;
+                try {
+                    readFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(this,"Vocabulary changed to GRE",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.math:
+                library = "math.txt";
+                libraryLen = 65;
+                try {
+                    readFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(this,"Vocabulary changed to Math",Toast.LENGTH_SHORT).show();
                 return true;
             default:
@@ -122,23 +135,29 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        currentWord = dic[getRandomNumber(0,libraryLen)][0];
-        hint = dic[getRandomNumber(0,libraryLen)][1];
+        int ranInt = getRandomNumber(0,libraryLen);
+        currentWord = dic[ranInt][0];
+        hint = dic[ranInt][1];
         display = new String(new char[currentWord.length()]).replace('\0','_');
         //Log messages for internal debugs
         Log.d("Creation",currentWord);
         Log.d("Creation",display);
         Log.d("Creation",hint);
-        int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
-        int letterHint2 = getRandomNumber(0,currentWord.length()/2);
-        char hint1 = currentWord.charAt(letterHint1);
-        char hint2 = currentWord.charAt(letterHint2);
-
-        String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
-        display = ns;
-        ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
-        display = ns;
-        Log.d("Creation",display);
+        if(currentWord.length()>5 && currentWord.length()<7){
+            int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
+            char hint1 = currentWord.charAt(letterHint1);
+            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
+            display = ns;
+        }else if(currentWord.length()>=7){
+            int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
+            int letterHint2 = getRandomNumber(0,currentWord.length()/2);
+            char hint1 = currentWord.charAt(letterHint1);
+            char hint2 = currentWord.charAt(letterHint2);
+            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
+            display = ns;
+            ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
+            display = ns;
+        }
 
         btna = (ImageButton) findViewById(R.id.btna);
         btnb = (ImageButton) findViewById(R.id.btnb);
@@ -418,24 +437,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void newWord(){
-        try {
-            readFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        currentWord = dic[getRandomNumber(0,libraryLen)][0];
-        hint = dic[getRandomNumber(0,libraryLen)][1];
+
+        int ranInt = getRandomNumber(0,libraryLen);
+        currentWord = dic[ranInt][0];
+        hint = dic[ranInt][1];
         display = new String(new char[currentWord.length()]).replace('\0','_');
+        if(currentWord.length()>5 && currentWord.length()<7){
+            int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
+            char hint1 = currentWord.charAt(letterHint1);
+            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
+            display = ns;
+        }else if(currentWord.length()>=7){
+            int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
+            int letterHint2 = getRandomNumber(0,currentWord.length()/2);
+            char hint1 = currentWord.charAt(letterHint1);
+            char hint2 = currentWord.charAt(letterHint2);
+            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
+            display = ns;
+            ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
+            display = ns;
+        }
         int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
         int letterHint2 = getRandomNumber(0,currentWord.length()/2);
         char hint1 = currentWord.charAt(letterHint1);
         char hint2 = currentWord.charAt(letterHint2);
         currentIndex = 0;
         stage=0;
-        String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
-        display = ns;
-        ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
-        display = ns;
         tv.setText(display);
         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
     }
