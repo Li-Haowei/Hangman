@@ -44,9 +44,9 @@ import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
-    private int libraryLen = 676;
+    private int libraryLen = 28216;
     private String[][] dic = new String[libraryLen][2];
-    private String library = "words.txt";
+    private String library = "dictionary.txt";
     private int stage;
     private String currentWord;
     private String hint;
@@ -121,6 +121,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Toast.makeText(this,"Vocabulary changed to Math",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.engdict:
+                library = "dictionary.txt";
+                libraryLen = 28216;
+                try {
+                    readFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Toast.makeText(this,"Vocabulary changed to English Dictionary",Toast.LENGTH_SHORT).show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -138,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
         int ranInt = getRandomNumber(0,libraryLen);
         currentWord = dic[ranInt][0];
         hint = dic[ranInt][1];
+        while(!checkValidWord(currentWord)){
+            ranInt = getRandomNumber(0,libraryLen);
+            currentWord = dic[ranInt][0];
+            hint = dic[ranInt][1];
+        }
         display = new String(new char[currentWord.length()]).replace('\0','_');
         //Log messages for internal debugs
         Log.d("Creation",currentWord);
@@ -435,12 +450,24 @@ public class MainActivity extends AppCompatActivity {
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
-
+    private boolean checkValidWord(String word){
+        if(word.contains("-")){
+            return false;
+        }
+        if(word.contains(" ")){
+            return false;
+        }
+        return true;
+    }
     private void newWord(){
-
         int ranInt = getRandomNumber(0,libraryLen);
         currentWord = dic[ranInt][0];
         hint = dic[ranInt][1];
+        while(!checkValidWord(currentWord)){
+            ranInt = getRandomNumber(0,libraryLen);
+            currentWord = dic[ranInt][0];
+            hint = dic[ranInt][1];
+        }
         display = new String(new char[currentWord.length()]).replace('\0','_');
         if(currentWord.length()>5 && currentWord.length()<7){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);

@@ -20,6 +20,8 @@
                 android:title="GRE" />
             <item android:id="@+id/math"
                 android:title="math" />
+            <item android:id="@+id/engdict"
+                android:title="English Dictionary" />
         </menu>
     </item>
 </menu>
