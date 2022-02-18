@@ -277,7 +277,6 @@
         android:id="@+id/imageView3"
         android:layout_width="231dp"
         android:layout_height="272dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"

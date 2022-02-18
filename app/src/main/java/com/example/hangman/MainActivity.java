@@ -1,16 +1,23 @@
 package com.example.hangman;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.LogPrinter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,12 +40,11 @@ import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
-    //private static final String FileName = "gre.txt";
-    private AssetManager manager;
     private String[][] GRE = new String[676][2];
+    private int stage;
     private String currentWord;
     private String hint;
-    private String[] chars;
+    private int currentIndex;
     private ImageButton btna;
     private ImageButton btnb;
     private ImageButton btnc;
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnz;
     private TextView tv;
     private String display;
+    private ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         }
         currentWord = GRE[getRandomNumber(0,676)][0];
         hint = GRE[getRandomNumber(0,676)][1];
-        chars = new String[currentWord.length()];
         display = new String(new char[currentWord.length()]).replace('\0','_');
         Log.d("Creation",currentWord);
         Log.d("Creation",display);
@@ -122,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
         btnz = (ImageButton) findViewById(R.id.btnz);
         tv = (TextView) findViewById(R.id.textView);
         tv.setText(display);
+        img = (ImageView) findViewById(R.id.imageView3);
+
 
 
         btna.setOnClickListener(new View.OnClickListener() {
@@ -308,17 +316,57 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    private void checkIfRight(){
+        if(display.charAt(currentIndex)!=currentWord.charAt(currentIndex)){
+            String ns = display.substring(0,currentIndex)+currentWord.charAt(currentIndex)+display.substring(currentIndex+1);
+            display = ns;
+            SpannableString spannableString = new SpannableString(display);
+            ForegroundColorSpan white = new ForegroundColorSpan(Color.WHITE);
+            spannableString.setSpan(white,
+                    currentIndex, currentIndex+1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tv.setText(spannableString);
+            switch (stage){
+                case 0:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.head));
+                    break;
+                case 1:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.body));
+                    break;
+                case 2:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.left));
+                    break;
+                case 3:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.botharms));
+                    break;
+                case 4:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.leftleg));
+                    break;
+                case 5:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.endgame));
+                    tv.setText("Game Over");
+                    break;
+                default:
+                    tv.setText("Game Over");
+                    break;
+            }
+            stage++;
+        }
+    }
     private void update(char letter){
         for (int i = 0; i < display.length(); i++) {
             if(display.charAt(i)=='_'){
                 String ns = display.substring(0,i)+letter+display.substring(i+1);
                 display = ns;
                 tv.setText(display);
+                currentIndex = i;
+                checkIfRight();
                 break;
             }
         }
         if(checkIfEnd()){
-            tv.setText("Game Over");
+            tv.setText("You Luckily Won");
+            tv.setTextSize(35);
         }
     }
     private String[] extractWord(String line){
