@@ -3,43 +3,22 @@ package com.example.hangman;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.util.LogPrinter;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
 
 
 
@@ -493,5 +472,50 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(display);
         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
     }
+    public void onSaveInstanceState(Bundle savedInstanceState) {
 
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+        savedInstanceState.putString("currentWord", currentWord);
+        savedInstanceState.putString("display", display);
+        savedInstanceState.putInt("stage", stage);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+//onRestoreInstanceState
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        super.onRestoreInstanceState(savedInstanceState);
+        this.currentWord = savedInstanceState.getString("currentWord");
+        this.display = savedInstanceState.getString("display");
+        tv.setText(this.display);
+        this.stage = savedInstanceState.getInt("stage");
+        switch (stage){
+            case 0:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.head));
+                break;
+            case 1:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.body));
+                break;
+            case 2:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.left));
+                break;
+            case 3:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.botharms));
+                break;
+            case 4:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.leftleg));
+                break;
+            case 5:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.endgame));
+                tv.setText("Game Over");
+                break;
+            default:
+                tv.setText("Game Over");
+                break;
+        }
+    }
 }
