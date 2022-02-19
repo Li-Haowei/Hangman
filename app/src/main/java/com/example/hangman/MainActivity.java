@@ -137,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Creation",currentWord);
         Log.d("Creation",display);
         Log.d("Creation",hint);
-        if(currentWord.length()>5 && currentWord.length()<7){
+        if(currentWord.length()>6 && currentWord.length()<9){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             char hint1 = currentWord.charAt(letterHint1);
             String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
             display = ns;
-        }else if(currentWord.length()>=7){
+        }else if(currentWord.length()>=9){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             int letterHint2 = getRandomNumber(0,currentWord.length()/2);
             char hint1 = currentWord.charAt(letterHint1);
@@ -448,12 +448,12 @@ public class MainActivity extends AppCompatActivity {
             hint = dic[ranInt][1];
         }
         display = new String(new char[currentWord.length()]).replace('\0','_');
-        if(currentWord.length()>5 && currentWord.length()<7){
+        if(currentWord.length()>6 && currentWord.length()<9){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             char hint1 = currentWord.charAt(letterHint1);
             String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
             display = ns;
-        }else if(currentWord.length()>=7){
+        }else if(currentWord.length()>=9){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             int letterHint2 = getRandomNumber(0,currentWord.length()/2);
             char hint1 = currentWord.charAt(letterHint1);
