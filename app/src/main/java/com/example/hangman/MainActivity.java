@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private int libraryLen = 28216;
     private String[][] dic = new String[libraryLen][2];
     private String library = "dictionary.txt";
-    private int stage;
+    private int stage = -1;
     private String currentWord;
     private String hint;
     private int currentIndex;
@@ -379,7 +379,11 @@ public class MainActivity extends AppCompatActivity {
             spannableString.setSpan(color,
                     currentIndex, currentIndex+1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv.setText(spannableString);
+            stage++;
             switch (stage){
+                case -1:
+                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
+                    break;
                 case 0:
                     img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.head));
                     break;
@@ -403,7 +407,6 @@ public class MainActivity extends AppCompatActivity {
                     tv.setText("Game Over");
                     break;
             }
-            stage++;
         }
     }
     private void update(char letter){
@@ -468,7 +471,7 @@ public class MainActivity extends AppCompatActivity {
         char hint1 = currentWord.charAt(letterHint1);
         char hint2 = currentWord.charAt(letterHint2);
         currentIndex = 0;
-        stage=0;
+        stage=-1;
         tv.setText(display);
         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
     }
@@ -494,6 +497,9 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(this.display);
         this.stage = savedInstanceState.getInt("stage");
         switch (stage){
+            case -1:
+                img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
+                break;
             case 0:
                 img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.head));
                 break;
