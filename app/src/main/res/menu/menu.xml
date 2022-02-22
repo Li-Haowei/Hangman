@@ -8,6 +8,9 @@
     <item android:id="@+id/restart"
         android:title="Restart"
         app:showAsAction="never" />
+    <item android:id="@+id/review"
+        android:title="Review"
+        app:showAsAction="never" />
     <item android:id="@+id/newword"
         android:icon="@drawable/swap"
         android:title="Word Swap"

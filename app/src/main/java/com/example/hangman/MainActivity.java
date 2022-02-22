@@ -3,6 +3,10 @@ package com.example.hangman;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -59,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private String display;
     private ImageView img;
-
+    private SharedPreferences sp= getSharedPreferences("reviews", Context.MODE_PRIVATE);
+    private SharedPreferences.Editor editor = sp.edit();
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -79,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.restart:
                 recreate();
+                return true;
+            case R.id.review:
+                Intent intent = new Intent(MainActivity.this,ReviewPage.class);
+                startActivity(intent);
                 return true;
             case R.id.gre:
                 library = "words.txt";
@@ -124,10 +133,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int ranInt = getRandomNumber(0,libraryLen);
+        int ranInt = getRandomNumber(0,libraryLen); // this random integer will be used to pick a word from library
         currentWord = dic[ranInt][0];
         hint = dic[ranInt][1];
         while(!checkValidWord(currentWord)){
+            //Since the library is achieved through web scraping, there may be a small chance it is a phrase
             ranInt = getRandomNumber(0,libraryLen);
             currentWord = dic[ranInt][0];
             hint = dic[ranInt][1];
@@ -138,11 +148,13 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Creation",display);
         Log.d("Creation",hint);
         if(currentWord.length()>6 && currentWord.length()<9){
+            //if the length is between 6 and 9 give one letter hint
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             char hint1 = currentWord.charAt(letterHint1);
             String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
             display = ns;
         }else if(currentWord.length()>=9){
+            //if the length is greater or equal to 9 give two letter hint
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             int letterHint2 = getRandomNumber(0,currentWord.length()/2);
             char hint1 = currentWord.charAt(letterHint1);
@@ -182,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.textView);
         tv.setText(display);
         img = (ImageView) findViewById(R.id.imageView3);
-
 
 
         btna.setOnClickListener(new View.OnClickListener() {
@@ -362,15 +373,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private boolean checkIfEnd(){
+        //Checking if the game ends
         for (int i = 0; i < display.length(); i++) {
             if(display.charAt(i)=='_'){
                 return false;
             }
         }
+        editor.putString(currentWord,hint);
+        editor.commit();
         return true;
     }
 
     private void checkIfRight(){
+        //Check the user input is correct match, if not it takes one turn for drawing hangman
         if(display.charAt(currentIndex)!=currentWord.charAt(currentIndex)){
             String ns = display.substring(0,currentIndex)+currentWord.charAt(currentIndex)+display.substring(currentIndex+1);
             display = ns;
