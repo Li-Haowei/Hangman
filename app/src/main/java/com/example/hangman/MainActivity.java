@@ -434,19 +434,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void update(char letter){
-        for (int i = 0; i < display.length(); i++) {
-            if(display.charAt(i)=='_'){
-                String ns = display.substring(0,i)+letter+display.substring(i+1);
-                display = ns;
-                tv.setText(display);
-                currentIndex = i;
-                checkIfRight();
-                break;
+        if(!tv.getText().toString().equals("Game Over")) {
+            for (int i = 0; i < display.length(); i++) {
+                if (display.charAt(i) == '_') {
+                    String ns = display.substring(0, i) + letter + display.substring(i + 1);
+                    display = ns;
+                    tv.setText(display);
+                    currentIndex = i;
+                    checkIfRight();
+                    break;
+                }
             }
-        }
-        if(checkIfEnd()){
-            tv.setText("You Luckily Won");
-            tv.setTextSize(35);
+            if (checkIfEnd()) {
+                tv.setText("You Luckily Won");
+                tv.setTextSize(35);
+            }
         }
     }
 

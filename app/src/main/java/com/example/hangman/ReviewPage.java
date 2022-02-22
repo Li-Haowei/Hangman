@@ -18,8 +18,8 @@ public class ReviewPage extends AppCompatActivity {
         numberOfWordsPlayed = extras.getInt("numberOfWordsPlayed");
         SharedPreferences sp = getApplicationContext().getSharedPreferences("review", Context.MODE_PRIVATE);
         for (int i = 0; i < numberOfWordsPlayed; i++) {
-                String previous = tv.getText().toString();
-                tv.setText(previous + "\n" + sp.getString(i+"",""));
+                //String previous = tv.getText().toString();
+                tv.setText(sp.getString(i+"",""));
         }
 
     }
