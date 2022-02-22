@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private String display;
     private ImageView img;
-    private SharedPreferences sp= getSharedPreferences("reviews", Context.MODE_PRIVATE);
-    private SharedPreferences.Editor editor = sp.edit();
+    private SharedPreferences sp;
+    private SharedPreferences.Editor editor;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -194,7 +194,8 @@ public class MainActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.textView);
         tv.setText(display);
         img = (ImageView) findViewById(R.id.imageView3);
-
+        sp = getSharedPreferences("reviews", Context.MODE_PRIVATE);
+        editor = sp.edit();
 
         btna.setOnClickListener(new View.OnClickListener() {
             @Override
