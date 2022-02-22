@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView img;
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
+    private int numberOfWordsPlayed;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.review:
                 Intent intent = new Intent(MainActivity.this,ReviewPage.class);
+                intent.putExtra("numberOfWordsPlayed", numberOfWordsPlayed);
                 startActivity(intent);
                 return true;
             case R.id.gre:
@@ -194,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.textView);
         tv.setText(display);
         img = (ImageView) findViewById(R.id.imageView3);
-        sp = getSharedPreferences("reviews", Context.MODE_PRIVATE);
+        sp = getSharedPreferences("review", Context.MODE_PRIVATE);
         editor = sp.edit();
 
         btna.setOnClickListener(new View.OnClickListener() {
@@ -373,6 +375,12 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Creation","shit went wrong");
         }
     }
+    private String[] extractWord(String line){
+        String[] wordAndHint = line.split(" - ",2);
+        return wordAndHint;
+    }
+
+
     private boolean checkIfEnd(){
         //Checking if the game ends
         for (int i = 0; i < display.length(); i++) {
@@ -380,7 +388,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }
-        editor.putString(currentWord,hint);
+        editor.putString(numberOfWordsPlayed+"",currentWord + " - " +hint);
         editor.commit();
         return true;
     }
@@ -441,10 +449,7 @@ public class MainActivity extends AppCompatActivity {
             tv.setTextSize(35);
         }
     }
-    private String[] extractWord(String line){
-        String[] wordAndHint = line.split(" - ",2);
-        return wordAndHint;
-    }
+
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
