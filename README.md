@@ -1,3 +1,4 @@
+<h1>Hangman</h1>
 This is an Android hangman game, but it is not just a hangman game.
 
 There are libraries for words to be randomly generated from, such as GRE vocabulary(600+ challenging words), Math vocabulary(60-70 basic math terms), English Dictionary vocabulary(28217 words), and ect(incoming).
