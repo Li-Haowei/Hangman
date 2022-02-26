@@ -8,7 +8,7 @@ There is also an option for user to look at the definition of the word before gu
 
 If the user cannot guess the word, he also has option to swap words
 
-Every word after played will be stored in local database and user can access them through "review" tab in menu
+Every word after played will be stored in local database and user can access them through "review" tab in menu(coming soon)
 
 <h1>Prerequisites</h1>
 Android Studio
