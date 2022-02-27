@@ -410,7 +410,54 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void update(char letter){
+        Boolean decision = true;
         if(!tv.getText().toString().equals("Game Over")) {
+            for (int i = 0; i < currentWord.length(); i++) {
+                if (currentWord.charAt(i) == letter) {
+                    decision = false;
+                    String ns = display.substring(0, i) + letter + display.substring(i + 1);
+                    display = ns;
+
+                }
+            }
+            tv.setText(display);
+            if(decision){
+                stage++;
+                switch (stage){
+                    case -1:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
+                        break;
+                    case 0:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.head));
+                        break;
+                    case 1:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.body));
+                        break;
+                    case 2:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.left));
+                        break;
+                    case 3:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.botharms));
+                        break;
+                    case 4:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.leftleg));
+                        break;
+                    case 5:
+                        img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.endgame));
+                        tv.setText("Game Over");
+                        break;
+                    default:
+                        tv.setText("Game Over");
+                        break;
+                }
+            }
+            if (checkIfEnd()) {
+                tv.setText("You Luckily Won");
+                tv.setTextSize(35);
+            }
+        }
+        //Below is old game mode
+        /*if(!tv.getText().toString().equals("Game Over")) {
             for (int i = 0; i < display.length(); i++) {
                 if (display.charAt(i) == '_') {
                     String ns = display.substring(0, i) + letter + display.substring(i + 1);
@@ -425,7 +472,7 @@ public class MainActivity extends AppCompatActivity {
                 tv.setText("You Luckily Won");
                 tv.setTextSize(35);
             }
-        }
+        }*/
     }
 
     private int getRandomNumber(int min, int max) {
