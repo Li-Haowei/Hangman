@@ -365,6 +365,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         editor.putString(numberOfWordsPlayed+"",currentWord + " - " +hint);
+        Log.d("debug",currentWord);
         editor.commit();
         return true;
     }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class ReviewPage extends AppCompatActivity {
@@ -17,9 +18,12 @@ public class ReviewPage extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         numberOfWordsPlayed = extras.getInt("numberOfWordsPlayed");
         SharedPreferences sp = getApplicationContext().getSharedPreferences("review", Context.MODE_PRIVATE);
+        Log.d("debug","Entering Review Page");
+        Log.d("debug","numberOfWordsPlayed: "+numberOfWordsPlayed);
         for (int i = 0; i < numberOfWordsPlayed; i++) {
-                //String previous = tv.getText().toString();
-                tv.setText(sp.getString(i+"",""));
+                String previous = tv.getText().toString();
+                tv.setText(previous+sp.getString(i+"",""));
+                Log.d("debug",sp.getString(i+"",""));
         }
 
     }
