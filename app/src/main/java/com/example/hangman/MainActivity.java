@@ -106,42 +106,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            readFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        int ranInt = getRandomNumber(0,libraryLen); // this random integer will be used to pick a word from library
-        currentWord = dic[ranInt][0];
-        hint = dic[ranInt][1];
-        while(!checkValidWord(currentWord)){
-            //Since the library is achieved through web scraping, there may be a small chance it is a phrase
-            ranInt = getRandomNumber(0,libraryLen);
-            currentWord = dic[ranInt][0];
-            hint = dic[ranInt][1];
-        }
-        display = new String(new char[currentWord.length()]).replace('\0','_');
-        //Log messages for internal debugs
-        Log.d("Creation",currentWord);
-        Log.d("Creation",display);
-        Log.d("Creation",hint);
-        if(currentWord.length()>6 && currentWord.length()<9){
-            //if the length is between 6 and 9 give one letter hint
-            int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
-            char hint1 = currentWord.charAt(letterHint1);
-            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
-            display = ns;
-        }else if(currentWord.length()>=9){
-            //if the length is greater or equal to 9 give two letter hint
-            int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
-            int letterHint2 = getRandomNumber(0,currentWord.length()/2);
-            char hint1 = currentWord.charAt(letterHint1);
-            char hint2 = currentWord.charAt(letterHint2);
-            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
-            display = ns;
-            ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
-            display = ns;
-        }
 
         btna = (ImageButton) findViewById(R.id.btna);
         btnb = (ImageButton) findViewById(R.id.btnb);
@@ -174,6 +138,18 @@ public class MainActivity extends AppCompatActivity {
         img = (ImageView) findViewById(R.id.imageView3);
         sp = getSharedPreferences("review", Context.MODE_PRIVATE);
         editor = sp.edit();
+
+        try {
+            readFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        newWord();
+
+        editor.putString(numberOfWordsPlayed+"",currentWord + " - " +hint);
+        editor.apply();
+        numberOfWordsPlayed++;
+
 
         btna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -364,11 +340,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }
-        editor.putString(numberOfWordsPlayed+"",currentWord + " - " +hint);
-        Log.d("debug",currentWord);
-        editor.apply();
-        numberOfWordsPlayed++;
-        Log.d("debug",sp.getString(0+"","defaultStringIfNothingFound"));
+
         return true;
     }
 
@@ -515,12 +487,12 @@ public class MainActivity extends AppCompatActivity {
             ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
             display = ns;
         }
-        int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
-        int letterHint2 = getRandomNumber(0,currentWord.length()/2);
         currentIndex = 0;
         stage=-1;
         tv.setText(display);
         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
+
+
     }
     public void onSaveInstanceState(Bundle savedInstanceState) {
 
