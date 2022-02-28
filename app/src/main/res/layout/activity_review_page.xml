@@ -7,7 +7,7 @@
     tools:context=".ReviewPage">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/reviewtv"
         android:layout_width="300dp"
         android:layout_height="465dp"
         android:layout_marginStart="55dp"

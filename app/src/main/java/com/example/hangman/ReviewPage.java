@@ -15,15 +15,15 @@ public class ReviewPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_page);
+        tv = (TextView) findViewById(R.id.reviewtv);
         Bundle extras = getIntent().getExtras();
         numberOfWordsPlayed = extras.getInt("numberOfWordsPlayed");
         SharedPreferences sp = getApplicationContext().getSharedPreferences("review", Context.MODE_PRIVATE);
         Log.d("debug","Entering Review Page");
-        Log.d("debug","numberOfWordsPlayed: "+numberOfWordsPlayed);
         for (int i = 0; i < numberOfWordsPlayed; i++) {
                 String previous = tv.getText().toString();
-                tv.setText(previous+sp.getString(i+"",""));
-                Log.d("debug",sp.getString(i+"",""));
+                //Log.d("debug",sp.getString(i+"",""));
+                tv.setText(previous + "\n" + sp.getString(i+"",""));
         }
 
     }
