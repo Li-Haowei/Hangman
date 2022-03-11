@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private String currentWord;
     private String hint;
     private int currentIndex;
-    private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl;
-    private ImageButton btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
+    private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl,
+            btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
+    ;
+    private Animation wave;
     private TextView tv;
     private String display;
     private ImageView img;
@@ -169,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
         btnx = (ImageButton) findViewById(R.id.btnx);
         btny = (ImageButton) findViewById(R.id.btny);
         btnz = (ImageButton) findViewById(R.id.btnz);
+        wave = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.wave);
         tv = (TextView) findViewById(R.id.textView);
         tv.setText(display);
         img = (ImageView) findViewById(R.id.imageView3);
@@ -179,12 +184,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 update('a');
+                btna.startAnimation(wave);
             }
         });
         btnb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('b');
+                btnb.startAnimation(wave);
             }
         });
         btnc.setOnClickListener(new View.OnClickListener() {
