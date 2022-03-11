@@ -1,6 +1,7 @@
 package com.example.hangman;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private int currentIndex;
     private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl,
             btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
-    ;
     private Animation wave;
     private TextView tv;
     private String display;
@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
     private int numberOfWordsPlayed;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
