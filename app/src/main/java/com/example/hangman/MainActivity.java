@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -453,6 +454,7 @@ public class MainActivity extends AppCompatActivity {
                     case 5:
                         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.endgame));
                         tv.setText("Game Over");
+                        creatDialog();
                         break;
                     default:
                         tv.setText("Game Over");
@@ -461,26 +463,10 @@ public class MainActivity extends AppCompatActivity {
             }
             if (checkIfEnd()) {
                 tv.setText("You Luckily Won");
+                creatDialog();
                 tv.setTextSize(35);
             }
         }
-        //Below is old game mode
-        /*if(!tv.getText().toString().equals("Game Over")) {
-            for (int i = 0; i < display.length(); i++) {
-                if (display.charAt(i) == '_') {
-                    String ns = display.substring(0, i) + letter + display.substring(i + 1);
-                    display = ns;
-                    tv.setText(display);
-                    currentIndex = i;
-                    checkIfRight();
-                    break;
-                }
-            }
-            if (checkIfEnd()) {
-                tv.setText("You Luckily Won");
-                tv.setTextSize(35);
-            }
-        }*/
     }
 
     private int getRandomNumber(int min, int max) {
@@ -575,5 +561,34 @@ public class MainActivity extends AppCompatActivity {
                 tv.setText("Game Over");
                 break;
         }
+    }
+
+    public void creatDialog(){
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View popup = getLayoutInflater().inflate(R.layout.popup, null);
+        TextView wordDisplay = (TextView) findViewById(R.id.wordDisplay);
+        TextView definitionDisplay = (TextView) findViewById(R.id.definitionDisplay);
+        Button  quit = (Button) findViewById(R.id.quit);
+        Button  review = (Button) findViewById(R.id.addToReview);
+
+        wordDisplay.setText(currentWord);
+        definitionDisplay.setText(hint);
+        dialogBuilder.setView(popup);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 }
