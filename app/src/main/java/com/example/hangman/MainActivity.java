@@ -198,144 +198,168 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 update('c');
+                btnc.startAnimation(wave);
             }
         });
         btnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('d');
+                btnd.startAnimation(wave);
             }
         });
         btne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('e');
+                btne.startAnimation(wave);
             }
         });
         btnf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('f');
+                btnf.startAnimation(wave);
             }
         });
         btng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('g');
+                btng.startAnimation(wave);
             }
         });
         btnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('h');
+                btnh.startAnimation(wave);
             }
         });
         btni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('i');
+                btni.startAnimation(wave);
             }
         });
         btnj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('j');
+                btnj.startAnimation(wave);
             }
         });
         btnk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('k');
+                btnk.startAnimation(wave);
             }
         });
         btnl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('l');
+                btnl.startAnimation(wave);
             }
         });
         btnn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('n');
+                btnn.startAnimation(wave);
             }
         });
         btnm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('m');
+                btnm.startAnimation(wave);
             }
         });
         btno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('o');
+                btno.startAnimation(wave);
             }
         });
         btnp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('p');
+                btnp.startAnimation(wave);
             }
         });
         btnq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('q');
+                btnq.startAnimation(wave);
             }
         });
         btnr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('r');
+                btnr.startAnimation(wave);
             }
         });
         btns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('s');
+                btns.startAnimation(wave);
             }
         });
         btnt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('t');
+                btnt.startAnimation(wave);
             }
         });
         btnu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('u');
+                btnu.startAnimation(wave);
             }
         });
         btnv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('v');
+                btnv.startAnimation(wave);
             }
         });
         btnw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('w');
+                btnw.startAnimation(wave);
             }
         });
         btnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('x');
+                btnx.startAnimation(wave);
             }
         });
         btny.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('y');
+                btny.startAnimation(wave);
             }
         });
         btnz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 update('z');
+                btnz.startAnimation(wave);
             }
         });
     }
