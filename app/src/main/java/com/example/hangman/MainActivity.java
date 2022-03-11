@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,17 +33,12 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
     private int libraryLen = 28216;
-    private String[][] dic = new String[libraryLen][2];
+    private final String[][] dic = new String[libraryLen][2];
     private String library = "dictionary.txt";
     private int stage = -1;
     private String currentWord;
     private String hint;
     private int currentIndex;
-    //This will be for popup window:
-    private TextView wordDisplay;
-    private TextView definitionDisplay;
-    private Button  quit;
-    private Button  review;
     /////////////
     private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl,
             btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
@@ -50,10 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private String display;
     private ImageView img;
-    private SharedPreferences sp;
-    private SharedPreferences.Editor editor;
     private int numberOfWordsPlayed;
-    private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -120,38 +113,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btna = (ImageButton) findViewById(R.id.btna);
-        btnb = (ImageButton) findViewById(R.id.btnb);
-        btnc = (ImageButton) findViewById(R.id.btnc);
-        btnd = (ImageButton) findViewById(R.id.btnd);
-        btne = (ImageButton) findViewById(R.id.btne);
-        btnf = (ImageButton) findViewById(R.id.btnf);
-        btng = (ImageButton) findViewById(R.id.btng);
-        btnh = (ImageButton) findViewById(R.id.btnh);
-        btni = (ImageButton) findViewById(R.id.btni);
-        btnj = (ImageButton) findViewById(R.id.btnj);
-        btnk = (ImageButton) findViewById(R.id.btnk);
-        btnl = (ImageButton) findViewById(R.id.btnl);
-        btnn = (ImageButton) findViewById(R.id.btnn);
-        btnm = (ImageButton) findViewById(R.id.btnm);
-        btno = (ImageButton) findViewById(R.id.btno);
-        btnp = (ImageButton) findViewById(R.id.btnp);
-        btnq = (ImageButton) findViewById(R.id.btnq);
-        btnr = (ImageButton) findViewById(R.id.btnr);
-        btns = (ImageButton) findViewById(R.id.btns);
-        btnt = (ImageButton) findViewById(R.id.btnt);
-        btnu = (ImageButton) findViewById(R.id.btnu);
-        btnv = (ImageButton) findViewById(R.id.btnv);
-        btnw = (ImageButton) findViewById(R.id.btnw);
-        btnx = (ImageButton) findViewById(R.id.btnx);
-        btny = (ImageButton) findViewById(R.id.btny);
-        btnz = (ImageButton) findViewById(R.id.btnz);
+        btna = findViewById(R.id.btna);
+        btnb = findViewById(R.id.btnb);
+        btnc = findViewById(R.id.btnc);
+        btnd = findViewById(R.id.btnd);
+        btne = findViewById(R.id.btne);
+        btnf = findViewById(R.id.btnf);
+        btng = findViewById(R.id.btng);
+        btnh = findViewById(R.id.btnh);
+        btni = findViewById(R.id.btni);
+        btnj = findViewById(R.id.btnj);
+        btnk = findViewById(R.id.btnk);
+        btnl = findViewById(R.id.btnl);
+        btnn = findViewById(R.id.btnn);
+        btnm = findViewById(R.id.btnm);
+        btno = findViewById(R.id.btno);
+        btnp = findViewById(R.id.btnp);
+        btnq = findViewById(R.id.btnq);
+        btnr = findViewById(R.id.btnr);
+        btns = findViewById(R.id.btns);
+        btnt = findViewById(R.id.btnt);
+        btnu = findViewById(R.id.btnu);
+        btnv = findViewById(R.id.btnv);
+        btnw = findViewById(R.id.btnw);
+        btnx = findViewById(R.id.btnx);
+        btny = findViewById(R.id.btny);
+        btnz = findViewById(R.id.btnz);
         wave = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.wave);
-        tv = (TextView) findViewById(R.id.textView);
+        tv = findViewById(R.id.textView);
         tv.setText(display);
-        img = (ImageView) findViewById(R.id.imageView3);
-        sp = getSharedPreferences("review", Context.MODE_PRIVATE);
-        editor = sp.edit();
+        img = findViewById(R.id.imageView3);
+        SharedPreferences sp = getSharedPreferences("review", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
         try {
             readFile();
         } catch (IOException e) {
@@ -164,187 +157,109 @@ public class MainActivity extends AppCompatActivity {
         numberOfWordsPlayed++;
 
 
-        btna.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('a');
-                btna.startAnimation(wave);
-            }
+        btna.setOnClickListener(view -> {
+            update('a');
+            btna.startAnimation(wave);
         });
-        btnb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('b');
-                btnb.startAnimation(wave);
-            }
+        btnb.setOnClickListener(view -> {
+            update('b');
+            btnb.startAnimation(wave);
         });
-        btnc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('c');
-                btnc.startAnimation(wave);
-            }
+        btnc.setOnClickListener(view -> {
+            update('c');
+            btnc.startAnimation(wave);
         });
-        btnd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('d');
-                btnd.startAnimation(wave);
-            }
+        btnd.setOnClickListener(view -> {
+            update('d');
+            btnd.startAnimation(wave);
         });
-        btne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('e');
-                btne.startAnimation(wave);
-            }
+        btne.setOnClickListener(view -> {
+            update('e');
+            btne.startAnimation(wave);
         });
-        btnf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('f');
-                btnf.startAnimation(wave);
-            }
+        btnf.setOnClickListener(view -> {
+            update('f');
+            btnf.startAnimation(wave);
         });
-        btng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('g');
-                btng.startAnimation(wave);
-            }
+        btng.setOnClickListener(view -> {
+            update('g');
+            btng.startAnimation(wave);
         });
-        btnh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('h');
-                btnh.startAnimation(wave);
-            }
+        btnh.setOnClickListener(view -> {
+            update('h');
+            btnh.startAnimation(wave);
         });
-        btni.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('i');
-                btni.startAnimation(wave);
-            }
+        btni.setOnClickListener(view -> {
+            update('i');
+            btni.startAnimation(wave);
         });
-        btnj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('j');
-                btnj.startAnimation(wave);
-            }
+        btnj.setOnClickListener(view -> {
+            update('j');
+            btnj.startAnimation(wave);
         });
-        btnk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('k');
-                btnk.startAnimation(wave);
-            }
+        btnk.setOnClickListener(view -> {
+            update('k');
+            btnk.startAnimation(wave);
         });
-        btnl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('l');
-                btnl.startAnimation(wave);
-            }
+        btnl.setOnClickListener(view -> {
+            update('l');
+            btnl.startAnimation(wave);
         });
-        btnn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('n');
-                btnn.startAnimation(wave);
-            }
+        btnn.setOnClickListener(view -> {
+            update('n');
+            btnn.startAnimation(wave);
         });
-        btnm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('m');
-                btnm.startAnimation(wave);
-            }
+        btnm.setOnClickListener(view -> {
+            update('m');
+            btnm.startAnimation(wave);
         });
-        btno.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('o');
-                btno.startAnimation(wave);
-            }
+        btno.setOnClickListener(view -> {
+            update('o');
+            btno.startAnimation(wave);
         });
-        btnp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('p');
-                btnp.startAnimation(wave);
-            }
+        btnp.setOnClickListener(view -> {
+            update('p');
+            btnp.startAnimation(wave);
         });
-        btnq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('q');
-                btnq.startAnimation(wave);
-            }
+        btnq.setOnClickListener(view -> {
+            update('q');
+            btnq.startAnimation(wave);
         });
-        btnr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('r');
-                btnr.startAnimation(wave);
-            }
+        btnr.setOnClickListener(view -> {
+            update('r');
+            btnr.startAnimation(wave);
         });
-        btns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('s');
-                btns.startAnimation(wave);
-            }
+        btns.setOnClickListener(view -> {
+            update('s');
+            btns.startAnimation(wave);
         });
-        btnt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('t');
-                btnt.startAnimation(wave);
-            }
+        btnt.setOnClickListener(view -> {
+            update('t');
+            btnt.startAnimation(wave);
         });
-        btnu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('u');
-                btnu.startAnimation(wave);
-            }
+        btnu.setOnClickListener(view -> {
+            update('u');
+            btnu.startAnimation(wave);
         });
-        btnv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('v');
-                btnv.startAnimation(wave);
-            }
+        btnv.setOnClickListener(view -> {
+            update('v');
+            btnv.startAnimation(wave);
         });
-        btnw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('w');
-                btnw.startAnimation(wave);
-            }
+        btnw.setOnClickListener(view -> {
+            update('w');
+            btnw.startAnimation(wave);
         });
-        btnx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('x');
-                btnx.startAnimation(wave);
-            }
+        btnx.setOnClickListener(view -> {
+            update('x');
+            btnx.startAnimation(wave);
         });
-        btny.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('y');
-                btny.startAnimation(wave);
-            }
+        btny.setOnClickListener(view -> {
+            update('y');
+            btny.startAnimation(wave);
         });
-        btnz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                update('z');
-                btnz.startAnimation(wave);
-            }
+        btnz.setOnClickListener(view -> {
+            update('z');
+            btnz.startAnimation(wave);
         });
     }
     private void readFile() throws IOException {
@@ -367,8 +282,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private String[] extractWord(String line){
-        String[] wordAndHint = line.split(" - ",2);
-        return wordAndHint;
+        return line.split(" - ",2);
     }
 
 
@@ -383,54 +297,15 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void checkIfRight(){
-        //Check the user input is correct match, if not it takes one turn for drawing hangman
-        if(display.charAt(currentIndex)!=currentWord.charAt(currentIndex)){
-            String ns = display.substring(0,currentIndex)+currentWord.charAt(currentIndex)+display.substring(currentIndex+1);
-            display = ns;
-            SpannableString spannableString = new SpannableString(display);
-            ForegroundColorSpan color = new ForegroundColorSpan(Color.BLACK);
-            spannableString.setSpan(color,
-                    currentIndex, currentIndex+1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            tv.setText(spannableString);
-            stage++;
-            switch (stage){
-                case -1:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
-                    break;
-                case 0:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.head));
-                    break;
-                case 1:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.body));
-                    break;
-                case 2:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.left));
-                    break;
-                case 3:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.botharms));
-                    break;
-                case 4:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.leftleg));
-                    break;
-                case 5:
-                    img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.endgame));
-                    tv.setText("Game Over");
-                    break;
-                default:
-                    tv.setText("Game Over");
-                    break;
-            }
-        }
-    }
+
+
     private void update(char letter){
-        Boolean decision = true;
+        boolean decision = true;
         if(!tv.getText().toString().equals("Game Over")) {
             for (int i = 0; i < currentWord.length(); i++) {
                 if (currentWord.charAt(i) == letter) {
                     decision = false;
-                    String ns = display.substring(0, i) + letter + display.substring(i + 1);
-                    display = ns;
+                    display = display.substring(0, i) + letter + display.substring(i + 1);
 
                 }
             }
@@ -459,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
                     case 5:
                         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.endgame));
                         tv.setText("Game Over");
-                        creatDialog();
+                        createDialog();
                         break;
                     default:
                         tv.setText("Game Over");
@@ -468,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if (checkIfEnd()) {
                 tv.setText("You Luckily Won");
-                creatDialog();
+                createDialog();
                 tv.setTextSize(35);
             }
         }
@@ -481,10 +356,7 @@ public class MainActivity extends AppCompatActivity {
         if(word.contains("-")){
             return false;
         }
-        if(word.contains(" ")){
-            return false;
-        }
-        return true;
+        return !word.contains(" ");
     }
     private void newWord(){
         int ranInt = getRandomNumber(0,libraryLen);
@@ -499,8 +371,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentWord.length()>6 && currentWord.length()<9){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             char hint1 = currentWord.charAt(letterHint1);
-            String ns = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
-            display = ns;
+            display = display.substring(0,letterHint1)+hint1+display.substring(letterHint1+1);
         }else if(currentWord.length()>=9){
             int letterHint1 = getRandomNumber(currentWord.length()/2+1,currentWord.length()-1);
             int letterHint2 = getRandomNumber(0,currentWord.length()/2);
@@ -568,16 +439,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void creatDialog(){
-        dialogBuilder = new AlertDialog.Builder(this);
+    public void createDialog(){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         final View popup = getLayoutInflater().inflate(R.layout.popup, null);
-        wordDisplay = (TextView) findViewById(R.id.wordDisplay);
-        definitionDisplay = (TextView) findViewById(R.id.definitionDisplay);
-        quit = (Button) findViewById(R.id.quit);
-        review = (Button) findViewById(R.id.addToReview);
-
-        wordDisplay.setText(currentWord);
-        definitionDisplay.setText(hint);
+        //This will be for popup window:
+        TextView wordDisplay = (TextView) findViewById(R.id.wordDisplay);
+        TextView definitionDisplay = findViewById(R.id.definitionDisplay);
+        Button quit = (Button) findViewById(R.id.quit);
+        Button review = (Button) findViewById(R.id.addToReview);
         dialogBuilder.setView(popup);
         dialog = dialogBuilder.create();
         dialog.show();
@@ -595,5 +464,25 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+/*
+        dialogBuilder.setView(popup);
+        dialog = dialogBuilder.create();
+        dialog.show();
+        wordDisplay.setText(currentWord);
+        definitionDisplay.setText(hint);
+
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });*/
     }
 }
