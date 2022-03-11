@@ -38,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
     private String currentWord;
     private String hint;
     private int currentIndex;
+    //This will be for popup window:
+    private TextView wordDisplay;
+    private TextView definitionDisplay;
+    private Button  quit;
+    private Button  review;
+    /////////////
     private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl,
             btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
     private Animation wave;
@@ -146,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
         img = (ImageView) findViewById(R.id.imageView3);
         sp = getSharedPreferences("review", Context.MODE_PRIVATE);
         editor = sp.edit();
-
         try {
             readFile();
         } catch (IOException e) {
@@ -566,10 +571,10 @@ public class MainActivity extends AppCompatActivity {
     public void creatDialog(){
         dialogBuilder = new AlertDialog.Builder(this);
         final View popup = getLayoutInflater().inflate(R.layout.popup, null);
-        TextView wordDisplay = (TextView) findViewById(R.id.wordDisplay);
-        TextView definitionDisplay = (TextView) findViewById(R.id.definitionDisplay);
-        Button  quit = (Button) findViewById(R.id.quit);
-        Button  review = (Button) findViewById(R.id.addToReview);
+        wordDisplay = (TextView) findViewById(R.id.wordDisplay);
+        definitionDisplay = (TextView) findViewById(R.id.definitionDisplay);
+        quit = (Button) findViewById(R.id.quit);
+        review = (Button) findViewById(R.id.addToReview);
 
         wordDisplay.setText(currentWord);
         definitionDisplay.setText(hint);
