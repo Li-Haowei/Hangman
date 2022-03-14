@@ -147,10 +147,6 @@ public class MainActivity extends AppCompatActivity {
         }
         newWord();
 
-        editor.putString(numberOfWordsPlayed+"",currentWord + " - " +hint);
-        editor.apply();
-        numberOfWordsPlayed++;
-
 
         btna.setOnClickListener(view -> {
             update('a');
@@ -381,7 +377,11 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(display);
         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
 
-
+        SharedPreferences sp = getSharedPreferences("review", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(numberOfWordsPlayed+"",currentWord + " - " +hint);
+        editor.apply();
+        numberOfWordsPlayed++;
     }
     public void onSaveInstanceState(Bundle savedInstanceState) {
 
