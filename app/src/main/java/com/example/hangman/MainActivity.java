@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private int stage = -1;
     private String currentWord;
     private String hint;
-    /////////////
     private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl,
             btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
     private Animation wave;
@@ -431,45 +433,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void createDialog(){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle("Here is the word");
         final View popup = getLayoutInflater().inflate(R.layout.popup, null);
-
-        TextView wordDisplay = findViewById(R.id.wordDisplay);
-        TextView definitionDisplay = findViewById(R.id.definitionDisplay);
-        Button quit = findViewById(R.id.quit);
-        Button review = findViewById(R.id.addToReview);
-
         dialogBuilder.setView(popup);
+        dialogBuilder.setMessage("Word: " + currentWord + "\n"+ "\n" + "Definition: " + hint);
+        dialogBuilder.setNegativeButton("Add to review", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        dialogBuilder.setPositiveButton("Quit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
-
-        review.setOnClickListener(view -> {
-
-        });
-
-        quit.setOnClickListener(view -> {
-
-        });
-/*
-        dialogBuilder.setView(popup);
-        dialog = dialogBuilder.create();
-        dialog.show();
-        wordDisplay.setText(currentWord);
-        definitionDisplay.setText(hint);
-
-        review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        quit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });*/
     }
 }
