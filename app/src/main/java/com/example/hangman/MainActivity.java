@@ -4,16 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private int stage = -1;
     private String currentWord;
     private String hint;
-    private int currentIndex;
     /////////////
     private ImageButton btna, btnb, btnc, btnd, btne, btnf, btng, btnh, btni, btnj, btnk, btnl,
             btnn, btnm, btno, btnp, btnq, btnr, btns, btnt, btnu, btnv, btnw, btnx, btny, btnz;
@@ -47,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private String display;
     private ImageView img;
     private int numberOfWordsPlayed;
-    private AlertDialog dialog;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -382,7 +375,6 @@ public class MainActivity extends AppCompatActivity {
             ns = display.substring(0,letterHint2)+hint2+display.substring(letterHint2+1);
             display = ns;
         }
-        currentIndex = 0;
         stage=-1;
         tv.setText(display);
         img.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,R.drawable.stand));
@@ -442,27 +434,22 @@ public class MainActivity extends AppCompatActivity {
     public void createDialog(){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         final View popup = getLayoutInflater().inflate(R.layout.popup, null);
-        //This will be for popup window:
-        TextView wordDisplay = (TextView) findViewById(R.id.wordDisplay);
+
+        TextView wordDisplay = findViewById(R.id.wordDisplay);
         TextView definitionDisplay = findViewById(R.id.definitionDisplay);
-        Button quit = (Button) findViewById(R.id.quit);
-        Button review = (Button) findViewById(R.id.addToReview);
+        Button quit = findViewById(R.id.quit);
+        Button review = findViewById(R.id.addToReview);
+
         dialogBuilder.setView(popup);
-        dialog = dialogBuilder.create();
+        AlertDialog dialog = dialogBuilder.create();
         dialog.show();
 
-        review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        review.setOnClickListener(view -> {
 
-            }
         });
 
-        quit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
+        quit.setOnClickListener(view -> {
+
         });
 /*
         dialogBuilder.setView(popup);
